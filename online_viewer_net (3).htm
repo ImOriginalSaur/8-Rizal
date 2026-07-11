@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade 8 - Rizal Hub</title>
+    <style>
+        /* --- Reset & Base Styles --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-image: linear-gradient(rgba(244, 247, 246, 0.94), rgba(244, 247, 246, 0.94)), 
+                              url('https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcTvn3ABuvqdalfkp7o5RH9B1D-gc_g2Eq7FhEZZc_bqBa5wwB8yPBFNMtOCeQqwkTcKJNHvVeChCEnTnBg');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* --- Scroll Animation Styles --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- Header / Hero --- */
+        header {
+            background: linear-gradient(135deg, #a12c2c 0%, #4a1212 100%);
+            color: white;
+            text-align: center;
+            padding: 90px 20px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        header h1 { font-size: 3rem; margin-bottom: 10px; }
+        header p { font-size: 1.2rem; opacity: 0.9; font-style: italic; }
+
+        /* --- Sticky Navigation --- */
+        nav {
+            background-color: #4a1212;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            text-align: center;
+            padding: 15px 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        nav span {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        nav span:hover { color: #ffd700; }
+
+        /* --- Layout Container --- */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- Welcoming Section --- */
+        .welcome-section {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            margin: 40px auto;
+            border-top: 5px solid #a12c2c;
+        }
+
+        .welcome-section h2 { color: #4a1212; margin-bottom: 15px; font-size: 2rem;}
+        .welcome-section p { max-width: 800px; margin: 0 auto; color: #555; font-size: 1.1rem; }
+
+        /* --- Sections Titles --- */
+        .main-heading {
+            color: #4a1212;
+            text-align: center;
+            margin: 60px 0 30px 0;
+            font-size: 2.2rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .main-heading::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: #a12c2c;
+        }
+
+        /* --- Blog Stories Layout --- */
+        .blog-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .post-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .post-card:hover { transform: translateY(-3px); }
+        .post-card h3 { color: #4a1212; margin-bottom: 5px; }
+        .post-date { font-size: 0.85rem; color: #888; margin-bottom: 15px; }
+
+        /* --- About Us Directory System --- */
+        .roster-group {
+            margin-bottom: 40px;
+        }
+
+        .roster-subtitle {
+            color: #a12c2c;
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            border-bottom: 1px dashed #ccc;
+            padding-bottom: 5px;
+        }
+
+        .profile-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .profile-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border-bottom: 3px solid #e0e0e0;
+            transition: border-color 0.3s ease;
+        }
+
+        .profile-card:hover { border-color: #a12c2c; }
+
+        .avatar {
+            width: 85px;
+            height: 85px;
+            border-radius: 50%;
+            background-color: #f0f0f0;
+            margin: 0 auto 12px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            color: #888;
+            border: 2px solid #a12c2c;
+            overflow: hidden;
+        }
+
+        .avatar img { width: 100%; height: 100%; object-fit: cover; }
+        .profile-name { font-weight: bold; color: #222; font-size: 1.05rem; }
+        .profile-role { font-size: 0.85rem; color: #a12c2c; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 2px; }
+        .adviser-center { display: flex; justify-content: center; margin-bottom: 30px; }
+
+        /* --- Footer --- */
+        footer {
+            background-color: #4a1212;
+            color: white;
+            text-align: center;
+            padding: 25px;
+            margin-top: 80px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Grade 8 - Rizal</h1>
+        <p>[Empty slogan/subheading]</p>
+    </header>
+
+    <nav>
+        <span onclick="scrollToSection('home-view')">Home</span>
+        <span onclick="scrollToSection('stories-view')">Our Stories</span>
+        <span onclick="scrollToSection('about-view')">About Us</span>
+    </nav>
+
+    <div class="container">
+        
+        <section id="home-view" class="welcome-section reveal">
+            <h2>Home</h2>
+            <p>[Empty welcome message/description]</p>
+        </section>
+
+        <h2 class="main-heading" id="stories-view">Our Stories</h2>
+        <div class="blog-container">
+            
+            <article class="post-card reveal">
+                <h3>[Empty Story Title]</h3>
+                <div class="post-date">[Empty Date]</div>
+                <p>[Empty story body content]</p>
+            </article>
+
+        </div>
+
+        <h2 class="main-heading" id="about-view">About Us</h2>
+        
+        <div class="roster-group reveal">
+            <h4 class="roster-subtitle">Class Adviser</h4>
+            <div class="adviser-center">
+                <div class="profile-card" style="min-width: 260px;">
+                    <div class="avatar">NO PIC</div>
+                    <div class="profile-name">[Empty Name]</div>
+                    <div class="profile-role">Class Adviser</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="roster-group reveal">
+            <h4 class="roster-subtitle">Class Officers</h4>
+            <div class="profile-grid">
+                
+                <div class="profile-card">
+                    <div class="avatar">NO PIC</div>
+                    <div class="profile-name">[Empty Name]</div>
+                    <div class="profile-role">President</div>
+                </div>
+
+                <div class="profile-card">
+                    <div class="avatar">NO PIC</div>
+                    <div class="profile-name">[Empty Name]</div>
+                    <div class="profile-role">Vice President</div>
+                </div>
+
+                <div class="profile-card">
+                    <div class="avatar">NO PIC</div>
+                    <div class="profile-name">[Empty Name]</div>
+                    <div class="profile-role">Secretary</div>
+                </div>
+
+                <div class="profile-card">
+                    <div class="avatar">NO PIC</div>
+                    <div class="profile-name">[Empty Name]</div>
+                    <div class="profile-role">Treasurer</div>
+                </div>
+
+                <div class="profile-card">
+                    <div class="avatar">NO PIC</div>
+                    <div class="profile-name">[Empty Name]</div>
+                    <div class="profile-role">P.I.O.</div>
+                </div>
+
+                <div class="profile-card">
+                    <div class="avatar">NO PIC</div>
+                    <div class="profile-name">[Empty Name]</div>
+                    <div class="profile-role">Peace Officer</div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="roster-group reveal">
+            <h4 class="roster-subtitle">The Students</h4>
+            <div class="profile-grid">
+                
+                <div class="profile-card">
+                    <div class="avatar">NO PIC</div>
+                    <div class="profile-name">[Empty Name]</div>
+                    <div class="profile-role">Student</div>
+                </div>
+
+                <div class="profile-card">
+                    <div class="avatar">NO PIC</div>
+                    <div class="profile-name">[Empty Name]</div>
+                    <div class="profile-role">Student</div>
+                </div>
+
+                <div class="profile-card">
+                    <div class="avatar">NO PIC</div>
+                    <div class="profile-name">[Empty Name]</div>
+                    <div class="profile-role">Student</div>
+                </div>
+
+                <div class="profile-card">
+                    <div class="avatar">NO PIC</div>
+                    <div class="profile-name">[Empty Name]</div>
+                    <div class="profile-role">Student</div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Grade 8 - Rizal | [Empty text]</p>
+    </footer>
+
+    <script>
+        function scrollToSection(id) {
+            const targetElement = document.getElementById(id);
+            if(targetElement) {
+                const yOffset = -70; 
+                const y = targetElement.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                window.scrollTo({top: y, behavior: 'smooth'});
+            }
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        const hiddenElements = document.querySelectorAll('.reveal');
+        hiddenElements.forEach((el) => observer.observe(el));
+    </script>
+
+</body>
+</html>
