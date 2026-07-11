@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grade 8 - Rizal Hub</title>
+    <title>Grade 8 - Rizal</title>
     <style>
         /* --- Reset & Base Styles --- */
         * {
@@ -28,8 +28,9 @@
         /* --- Scroll Animation Styles --- */
         .reveal {
             opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.1), 
+                        transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.1);
         }
 
         .reveal.active {
@@ -135,8 +136,9 @@
         }
 
         .post-card:hover { transform: translateY(-3px); }
-        .post-card h3 { color: #4a1212; margin-bottom: 5px; }
+        .post-card h3 { color: #4a1212; margin-bottom: 10px; font-size: 1.6rem; }
         .post-date { font-size: 0.85rem; color: #888; margin-bottom: 15px; }
+        .post-card p { color: #444; margin-bottom: 12px; text-align: justify; }
 
         /* --- About Us Directory System --- */
         .roster-group {
@@ -164,10 +166,13 @@
             text-align: center;
             box-shadow: 0 4px 12px rgba(0,0,0,0.05);
             border-bottom: 3px solid #e0e0e0;
-            transition: border-color 0.3s ease;
+            transition: border-color 0.3s ease, transform 0.3s ease;
         }
 
-        .profile-card:hover { border-color: #a12c2c; }
+        .profile-card:hover { 
+            border-color: #a12c2c; 
+            transform: translateY(-5px);
+        }
 
         .avatar {
             width: 85px;
@@ -203,7 +208,7 @@
 
     <header>
         <h1>Grade 8 - Rizal</h1>
-        <p>[Empty slogan/subheading]</p>
+        <p>Kabataan ang pag-asa ng bayan!</p>
     </header>
 
     <nav>
@@ -214,113 +219,265 @@
 
     <div class="container">
         
+        <!-- HOME SECTION -->
         <section id="home-view" class="welcome-section reveal">
             <h2>Home</h2>
-            <p>[Empty welcome message/description]</p>
+            <p>Hello there! Isang maligayang pagdating mula sa aming Pangkat 8-Rizal!
+
+Taos-pusong pasasalamat ang aming ipinaabot sa iyong pagbisita sa aming munting espasyo sa internet. Kami ang mga kabataang nagnanais na sumunod sa mga yapak at mararangal na aral ng ating Pambansang Bayani. Ang espasyong ito ay aming inilaan upang itampok ang aming mga kwento, talino, pagkakaisa, at mga pangarap na unti-unting binubuo sa loob ng aming silid-aralan. Nawa’y maging inspirasyon sa iyo ang bawat bahagi ng aming paglalakbay.</p>
         </section>
 
-        <h2 class="main-heading" id="stories-view">Our Stories</h2>
-        <div class="blog-container">
+        <!-- STORIES SECTION -->
+        <section id="stories-view" class="reveal">
+            <h2 class="main-heading">Our Stories</h2>
+            <div class="blog-container">
+                
+                <article class="post-card">
+                    <h3>Looking Back, Moving Forward: Our Journey from 7-Sampaguita to 8-Rizal</h3>
+                    <div class="post-date">July 2026</div>
+                    <p>Back then, we were 7-Sampaguita. We made so many memories that time can't bring back. Noong Grade 7, aminadong maiingay at palaging magulo kami—kahit may guro sa harapan, nag-iingay pa rin kami! But that didn't stop us from excelling. Nanatili pa rin kaming masipag, mahusay, at aktibo sa mga activities. Tuwing napapagalitan kami ng aming guro dahil sa kakulitan, marunong kaming humingi ng paumanhin at mag-sorry.</p>
+                    <p>Isang hindi malilimutang alaala noong nag-birthday ang aming adviser—sobrang saya namin noon dahil sinurpresa namin si Ma'am! Maaga kaming pumasok lahat para maghanda, and it was just pure happiness from that day on.</p>
+                    <p>Now that we are in Grade 8, some of our old classmates have moved on, and new students have joined our family. Thanks to our adviser, we all got to know each other after just a week! As we begin this new chapter as Grade 8-Rizal, buong-puso naming susundin ang sinabi ng ating pambansang bayani na si Dr. Jose P. Rizal: "Ang kabataan ang pag-asa ng bayan." Kaya naman, sama-sama nating tahakin ang mga problema, bigyan ito ng solusyon, at sabay-sabay nating harapin ang mga hamon patungo sa susunod na henerasyon!</p>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- ABOUT US SECTION -->
+        <section id="about-view">
+            <h2 class="main-heading">About Us</h2>
             
-            <article class="post-card reveal">
-                <h3>[Empty Story Title]</h3>
-                <div class="post-date">[Empty Date]</div>
-                <p>[Empty story body content]</p>
-            </article>
-
-        </div>
-
-        <h2 class="main-heading" id="about-view">About Us</h2>
-        
-        <div class="roster-group reveal">
-            <h4 class="roster-subtitle">Class Adviser</h4>
-            <div class="adviser-center">
-                <div class="profile-card" style="min-width: 260px;">
-                    <div class="avatar">NO PIC</div>
-                    <div class="profile-name">[Empty Name]</div>
-                    <div class="profile-role">Class Adviser</div>
+            <!-- CLASS ADVISER -->
+            <div class="roster-group">
+                <h4 class="roster-subtitle">Class Adviser</h4>
+                <div class="adviser-center">
+                    <div class="profile-card reveal" style="min-width: 260px;">
+                        <div class="avatar">NO PIC</div>
+                        <div class="profile-name">[Teacher's Name]</div>
+                        <div class="profile-role">Class Adviser</div>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="roster-group reveal">
-            <h4 class="roster-subtitle">Class Officers</h4>
-            <div class="profile-grid">
-                
-                <div class="profile-card">
-                    <div class="avatar">NO PIC</div>
-                    <div class="profile-name">[Empty Name]</div>
-                    <div class="profile-role">President</div>
+            <!-- CLASS OFFICERS (11 Cards Allocated) -->
+            <div class="roster-group">
+                <h4 class="roster-subtitle">Class Officers</h4>
+                <div class="profile-grid">
+                    
+                    <div class="profile-card reveal">
+                        <div class="avatar">NO PIC</div>
+                        <div class="profile-name">[Name]</div>
+                        <div class="profile-role">President</div>
+                    </div>
+
+                    <div class="profile-card reveal">
+                        <div class="avatar">NO PIC</div>
+                        <div class="profile-name">[Name]</div>
+                        <div class="profile-role">Vice President</div>
+                    </div>
+
+                    <div class="profile-card reveal">
+                        <div class="avatar">NO PIC</div>
+                        <div class="profile-name">[Name]</div>
+                        <div class="profile-role">Secretary</div>
+                    </div>
+
+                    <div class="profile-card reveal">
+                        <div class="avatar">NO PIC</div>
+                        <div class="profile-name">[Name]</div>
+                        <div class="profile-role">Treasurer</div>
+                    </div>
+
+                    <div class="profile-card reveal">
+                        <div class="avatar">NO PIC</div>
+                        <div class="profile-name">[Name]</div>
+                        <div class="profile-role">Auditor</div>
+                    </div>
+
+                    <div class="profile-card reveal">
+                        <div class="avatar">NO PIC</div>
+                        <div class="profile-name">[Name]</div>
+                        <div class="profile-role">P.I.O.</div>
+                    </div>
+
+                    <div class="profile-card reveal">
+                        <div class="avatar">NO PIC</div>
+                        <div class="profile-name">[Name]</div>
+                        <div class="profile-role">Business Manager</div>
+                    </div>
+
+                    <div class="profile-card reveal">
+                        <div class="avatar">NO PIC</div>
+                        <div class="profile-name">[Name]</div>
+                        <div class="profile-role">Sgt. at Arms</div>
+                    </div>
+
+                    <div class="profile-card reveal">
+                        <div class="avatar">NO PIC</div>
+                        <div class="profile-name">[Name]</div>
+                        <div class="profile-role">Sgt. at Arms</div>
+                    </div>
+
+                    <div class="profile-card reveal">
+                        <div class="avatar">NO PIC</div>
+                        <div class="profile-name">[Name]</div>
+                        <div class="profile-role">Muse</div>
+                    </div>
+
+                    <div class="profile-card reveal">
+                        <div class="avatar">NO PIC</div>
+                        <div class="profile-name">[Name]</div>
+                        <div class="profile-role">Escort</div>
+                    </div>
+
                 </div>
-
-                <div class="profile-card">
-                    <div class="avatar">NO PIC</div>
-                    <div class="profile-name">[Empty Name]</div>
-                    <div class="profile-role">Vice President</div>
-                </div>
-
-                <div class="profile-card">
-                    <div class="avatar">NO PIC</div>
-                    <div class="profile-name">[Empty Name]</div>
-                    <div class="profile-role">Secretary</div>
-                </div>
-
-                <div class="profile-card">
-                    <div class="avatar">NO PIC</div>
-                    <div class="profile-name">[Empty Name]</div>
-                    <div class="profile-role">Treasurer</div>
-                </div>
-
-                <div class="profile-card">
-                    <div class="avatar">NO PIC</div>
-                    <div class="profile-name">[Empty Name]</div>
-                    <div class="profile-role">P.I.O.</div>
-                </div>
-
-                <div class="profile-card">
-                    <div class="avatar">NO PIC</div>
-                    <div class="profile-name">[Empty Name]</div>
-                    <div class="profile-role">Peace Officer</div>
-                </div>
-
             </div>
-        </div>
 
-        <div class="roster-group reveal">
-            <h4 class="roster-subtitle">The Students</h4>
-            <div class="profile-grid">
-                
-                <div class="profile-card">
-                    <div class="avatar">NO PIC</div>
-                    <div class="profile-name">[Empty Name]</div>
-                    <div class="profile-role">Student</div>
+            <!-- THE STUDENTS (22 Cards Allocated) -->
+            <div class="roster-group">
+                <h4 class="roster-subtitle">The Students</h4>
+                <div class="profile-grid">
+                    
+                    <div class="profile-card reveal">
+                        <div class="avatar">NO PIC</div>
+                        <div class="profile-name">[Name]</div>
+                        <div class="profile-role">Student</div>
+                    </div>
+
+                    <div class="profile-card reveal">
+                        <div class="avatar">NO PIC</div>
+                        <div class="profile-name">[Name]</div>
+                        <div class="profile-role">Student</div>
+                    </div>
+
+                    <div class="profile-card reveal">
+                        <div class="avatar">NO PIC</div>
+                        <div class="profile-name">[Name]</div>
+                        <div class="profile-role">Student</div>
+                    </div>
+
+                    <div class="profile-card reveal">
+                        <div class="avatar">NO PIC</div>
+                        <div class="profile-name">[Name]</div>
+                        <div class="profile-role">Student</div>
+                    </div>
+
+                    <div class="profile-card reveal">
+                        <div class="avatar">NO PIC</div>
+                        <div class="profile-name">[Name]</div>
+                        <div class="profile-role">Student</div>
+                    </div>
+
+                    <div class="profile-card reveal">
+                        <div class="avatar">NO PIC</div>
+                        <div class="profile-name">[Name]</div>
+                        <div class="profile-role">Student</div>
+                    </div>
+
+                    <div class="profile-card reveal">
+                        <div class="avatar">NO PIC</div>
+                        <div class="profile-name">[Name]</div>
+                        <div class="profile-role">Student</div>
+                    </div>
+
+                    <div class="profile-card reveal">
+                        <div class="avatar">NO PIC</div>
+                        <div class="profile-name">[Name]</div>
+                        <div class="profile-role">Student</div>
+                    </div>
+
+                    <div class="profile-card reveal">
+                        <div class="avatar">NO PIC</div>
+                        <div class="profile-name">[Name]</div>
+                        <div class="profile-role">Student</div>
+                    </div>
+
+                    <div class="profile-card reveal">
+                        <div class="avatar">NO PIC</div>
+                        <div class="profile-name">[Name]</div>
+                        <div class="profile-role">Student</div>
+                    </div>
+
+                    <div class="profile-card reveal">
+                        <div class="avatar">NO PIC</div>
+                        <div class="profile-name">[Name]</div>
+                        <div class="profile-role">Student</div>
+                    </div>
+
+                    <div class="profile-card reveal">
+                        <div class="avatar">NO PIC</div>
+                        <div class="profile-name">[Name]</div>
+                        <div class="profile-role">Student</div>
+                    </div>
+
+                    <div class="profile-card reveal">
+                        <div class="avatar">NO PIC</div>
+                        <div class="profile-name">[Name]</div>
+                        <div class="profile-role">Student</div>
+                    </div>
+
+                    <div class="profile-card reveal">
+                        <div class="avatar">NO PIC</div>
+                        <div class="profile-name">[Name]</div>
+                        <div class="profile-role">Student</div>
+                    </div>
+
+                    <div class="profile-card reveal">
+                        <div class="avatar">NO PIC</div>
+                        <div class="profile-name">[Name]</div>
+                        <div class="profile-role">Student</div>
+                    </div>
+
+                    <div class="profile-card reveal">
+                        <div class="avatar">NO PIC</div>
+                        <div class="profile-name">[Name]</div>
+                        <div class="profile-role">Student</div>
+                    </div>
+
+                    <div class="profile-card reveal">
+                        <div class="avatar">NO PIC</div>
+                        <div class="profile-name">[Name]</div>
+                        <div class="profile-role">Student</div>
+                    </div>
+
+                    <div class="profile-card reveal">
+                        <div class="avatar">NO PIC</div>
+                        <div class="profile-name">[Name]</div>
+                        <div class="profile-role">Student</div>
+                    </div>
+
+                    <div class="profile-card reveal">
+                        <div class="avatar">NO PIC</div>
+                        <div class="profile-name">[Name]</div>
+                        <div class="profile-role">Student</div>
+                    </div>
+
+                    <div class="profile-card reveal">
+                        <div class="avatar">NO PIC</div>
+                        <div class="profile-name">[Name]</div>
+                        <div class="profile-role">Student</div>
+                    </div>
+
+                    <div class="profile-card reveal">
+                        <div class="avatar">NO PIC</div>
+                        <div class="profile-name">[Name]</div>
+                        <div class="profile-role">Student</div>
+                    </div>
+
+                    <div class="profile-card reveal">
+                        <div class="avatar">NO PIC</div>
+                        <div class="profile-name">[Name]</div>
+                        <div class="profile-role">Student</div>
+                    </div>
+
                 </div>
-
-                <div class="profile-card">
-                    <div class="avatar">NO PIC</div>
-                    <div class="profile-name">[Empty Name]</div>
-                    <div class="profile-role">Student</div>
-                </div>
-
-                <div class="profile-card">
-                    <div class="avatar">NO PIC</div>
-                    <div class="profile-name">[Empty Name]</div>
-                    <div class="profile-role">Student</div>
-                </div>
-
-                <div class="profile-card">
-                    <div class="avatar">NO PIC</div>
-                    <div class="profile-name">[Empty Name]</div>
-                    <div class="profile-role">Student</div>
-                </div>
-
             </div>
-        </div>
+        </section>
 
     </div>
 
     <footer>
-        <p>&copy; 2026 Grade 8 - Rizal | [Empty text]</p>
+        <p>&copy; 2026 Grade 8 - Rizal | Honoring the Legacy of Jose Rizal</p>
     </footer>
 
     <script>
@@ -340,7 +497,8 @@
                 }
             });
         }, {
-            threshold: 0.1
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px" /* Fires slightly before hitting the viewport for smoother entry */
         });
 
         const hiddenElements = document.querySelectorAll('.reveal');
